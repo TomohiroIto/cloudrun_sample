@@ -1,0 +1,21 @@
+steps:
+# Build the image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'asia-northeast1-docker.pkg.dev/${_PROJECT}/sample-repo/sample_image', './app1']
+# Push the image to Artifact Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'asia-northeast1-docker.pkg.dev/${_PROJECT}/sample-repo/sample_image']
+# Deploy image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: 
+    - 'run'
+    - 'deploy'
+    - 'app1-sample'
+    - '--image'
+    - 'asia-northeast1-docker.pkg.dev/${_PROJECT}/sample-repo/sample_image'
+    - '--region'
+    - 'asia-northeast1'
+
+substitutions:
+  _PROJECT: 

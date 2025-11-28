@@ -1,0 +1,9 @@
+main:
+  steps:
+    - init:
+        assign:
+          - app_env: ${sys.get_env("APP_ENV")}
+          - app_schema: ${sys.get_env("APP_SCHEMA")}
+          - app_table: ${sys.get_env("APP_TABLE")}
+    - the_end:
+        return: ${"[app_env]:" + app_env + " [app_schema]:" + app_schema + " [app_table]:" + app_table}

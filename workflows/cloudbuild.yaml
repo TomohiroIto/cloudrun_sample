@@ -1,0 +1,32 @@
+steps:
+- id: 'deploy-sample-wf'
+  name: 'gcr.io/cloud-builders/gcloud'
+  args: 
+    - workflows
+    - deploy
+    - sample-wf1
+    - --source
+    - ./wf1/sample_wf.yaml
+    - --service-account
+    - "sa-workflows@${_PROJECT}.iam.gserviceaccount.com"
+    - --location
+    - asia-northeast1
+
+- id: 'deploy-sample-wf2'
+  name: 'gcr.io/cloud-builders/gcloud'
+  args: 
+    - workflows
+    - deploy
+    - sample-wf2
+    - --source
+    - ./wf2/sample_wf2.yaml
+    - --service-account
+    - "sa-workflows@${_PROJECT}.iam.gserviceaccount.com"
+    - --location
+    - asia-northeast1
+    - --env-vars-file
+    - ./wf2/env.yaml
+
+substitutions:
+  _PROJECT: 
+
