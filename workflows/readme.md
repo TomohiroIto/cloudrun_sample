@@ -5,6 +5,9 @@ gcloud builds submit --config=cloudbuild.yaml --substitutions=_PROJECT="project_
 
 https://docs.cloud.google.com/build/docs/deploying-builds/deploy-cloud-run?hl=ja
 
+
+https://zenn.dev/kterui9019/articles/98db718899bc4d
+
 ```
 npm install -g ajv-cli ajv-formats
 curl -o workflows.schema.json https://json.schemastore.org/workflows.json
