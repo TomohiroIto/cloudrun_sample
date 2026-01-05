@@ -25,8 +25,16 @@ steps:
     - --location
     - asia-northeast1
     - --env-vars-file
-    - ./wf2/env.yaml
+    - ./env/dev.yaml
 
 substitutions:
-  _PROJECT: 
+  _PROJECT: ''
 
+# gcloud scheduler jobs create http JOB_NAME \
+#     --schedule="FREQUENCY" \
+#     --uri="https://workflowexecutions.googleapis.com/v1/projects/PROJECT_ID/locations/REGION_NAME/workflows/WORKFLOW_NAME/executions" \
+#     --message-body="{\"argument\": \"DOUBLE_ESCAPED_JSON_STRING\"}" \
+#     --time-zone="TIME_ZONE" \
+#     --oauth-service-account-email="SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com"
+
+## https://docs.cloud.google.com/workflows/docs/schedule-workflow?hl=ja

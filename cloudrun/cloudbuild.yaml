@@ -16,6 +16,9 @@ steps:
     - 'asia-northeast1-docker.pkg.dev/${_PROJECT}/sample-repo/sample_image'
     - '--region'
     - 'asia-northeast1'
+    - '--env-vars-file'
+    - './app1/env.yaml'
+    - '--no-allow-unauthenticated'
 
 substitutions:
-  _PROJECT: 
+  _PROJECT: ''

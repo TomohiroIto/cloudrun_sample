@@ -7,3 +7,18 @@ main:
           - app_table: ${sys.get_env("APP_TABLE")}
     - the_end:
         return: ${"[app_env]:" + app_env + " [app_schema]:" + app_schema + " [app_table]:" + app_table}
+
+# main:
+#   params: [ args ]
+#   steps:
+#     - assign_value:
+#         assign:
+#           - title: ${default( map.get(args,"title"), "fugafuga")}
+#           - now: ${time.format(sys.now(), "Asia/Tokyo")}
+#           - today: ${text.split(time.format(sys.now(), "Asia/Tokyo"), "T")[0]}
+#           - date: ${default( map.get(args,"title"), today)}
+#     - logging:
+#         call: sys.log
+#         args:
+#           text: ${"title:" + title + ", date:" + date }
+#           severity: INFO
