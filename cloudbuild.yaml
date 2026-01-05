@@ -2,3 +2,5 @@ steps:
 - name: 'alpine'
   entrypoint: 'echo'
   args: ['Hello, world!']
+options:
+  logging: CLOUD_LOGGING_ONLY
